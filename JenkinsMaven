@@ -1,10 +1,14 @@
 pipeline{
   agent any
-  tools {
-  maven 'maven'
-}
-
-stages{
+  environment{
+     PATH = "C:\apache-maven-3.6.3\bin:$PATH"
+     }
+ stages{
+    stage("git clone code"){
+      steps{
+         git branch: 'main', credentialsId: 'github', url: 'https://github.com/PUSH-PRAG/hello-world.git'
+         }
+         }
       stage("maven install"){
           steps{
               bat "mvn clean install"
