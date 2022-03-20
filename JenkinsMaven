@@ -6,7 +6,7 @@ pipeline{
     stages{
        stage("git checkout"){
          steps{
-            git branch: 'main', url: 'https://github.com/PUSH-PRAG/JenkinsPractise.git'
+            git branch: 'main', credentialsId: 'GITHUB', url: 'https://github.com/PUSH-PRAG/JenkinsPractise.git'
          }
        }
       stage("maven install"){
