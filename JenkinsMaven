@@ -1,0 +1,15 @@
+pipeline{
+  agent any
+    stages{
+       stage("git checkout"){
+         steps{
+             git branch: 'main', credentialsId: 'GITHUB', url: 'https://github.com/PUSH-PRAG/JenkinsPractise.git'
+         }
+       }
+      stage("maven install"){
+          steps{
+              bat "mvn clean install"
+          }
+        }
+    }
+    }
